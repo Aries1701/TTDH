@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm Địa Điểm Sửa Xe</title>
+  <!-- Thư viện Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+    <div class="logo">🔧 Địa Điểm Sửa Xe</div>
+  <!-- Desktop -->
+<div id="filters-desktop" class="filter-group desktop-only">
+  <label><input type="checkbox" id="high-rating" /> Đánh Giá Cao (≥4.5)</label>
+  <label><input type="checkbox" id="nearby" /> Gần Bạn (Bán kính 2km)</label>
+  <label><input type="checkbox" id="motorbike" /> Sửa Xe Máy</label>
+  <label><input type="checkbox" id="car" /> Sửa Ô Tô</label>
+  <label><input type="checkbox" id="bicycle" /> Sửa Xe Đạp Điện</label>
+</div>
+
+<!-- Mobile -->
+<div id="filters-mobile" class="filter-group mobile-only">
+  <div class="dropdown-filter">
+    <div class="dropdown-toggle">Bộ lọc &#9662;</div>
+    <div class="dropdown-content">
+      <label><input type="checkbox" id="high-rating" /> Đánh Giá Cao (≥4.5)</label>
+      <label><input type="checkbox" id="nearby" /> Gần Bạn (Bán kính 2km)</label>
+      <label><input type="checkbox" id="motorbike" /> Sửa Xe Máy</label>
+      <label><input type="checkbox" id="car" /> Sửa Ô Tô</label>
+      <label><input type="checkbox" id="bicycle" /> Sửa Xe Đạp Điện</label>
+    </div>
+  </div>
+</div>
+
+  <div id="price-filter">
+    <label>Giá</label>
+    <select id="price-select">
+      <option value="">Tất cả</option>
+      <option value="low-high">Thấp đến Cao</option>
+      <option value="high-low">Cao đến Thấp</option>
+      <option value="range-100000-500000">100.000đ - 500.000đ</option>
+      <option value="range-500000-1000000">500.000đ - 1.000.000đ</option>
+      <option value="range-1000000-2000000">1.000.000đ - 2.000.000đ</option>
+      <option value="over2m">Trên 2.000.000đ</option>
+    </select>
+  </div>
+
+  <button id="filter-btn"><strong>Lọc</strong></button>
+</div>
+
+
+  </header>
+  <main>
+    <!-- Khu vực bản đồ -->
+  <section id="map"></section>
+  <!-- Danh sách địa điểm -->
+  <aside id="list">
+    <h3>Danh sách địa điểm:</h3>
+    <ul id="location-list"></ul>
+    
+  </aside>
+  </main>
+  <footer>
+    <p>© 2024 Địa Điểm Sửa Xe</p>
+  </footer>
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

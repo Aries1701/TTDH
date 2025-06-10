@@ -1,0 +1,298 @@
+/* Tổng quát */
+.desktop-only {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #0077b6; /* Màu xanh nước biển */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff; /* Màu chữ trắng để nổi bật trên nền xanh */
+}
+
+#filters {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#filters label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 10px;
+  color: #ffffff; /* Màu chữ trắng */
+}
+
+#filters input[type="checkbox"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ffffff; /* Màu viền trắng */
+  border-radius: 4px;
+  outline: none;
+  transition: background-color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+#filters input[type="checkbox"]:checked {
+  background-color: #ee6352; /* Màu xanh biển đậm hơn khi checkbox được chọn #00b4d8 #042A2B */
+  border-color: #ffffff; /* Màu viền khi chọn #0096c7*/
+}
+
+#filters input[type="checkbox"]:checked::after {
+  content: '\2713';
+  font-size: 14px;
+  color: white;
+  display: block;
+  text-align: center;
+  line-height: 22px;
+}
+
+button#filter-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #004062; /* Màu xanh biển đậm hơn cho nút */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button#filter-btn:hover {
+  background-color: #002a40; /* Màu tối hơn khi hover */
+}
+
+
+  
+  main {
+    display: flex;
+  }
+  
+  #map {
+    width: 75%;
+    height: calc(100vh - 60px);
+  }
+  
+  #list {
+    width: 25%;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 10px;
+  }
+  
+  #location-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #location-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #343a40;
+    color: white;
+  }
+  header select {
+    padding: 8px;
+
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  #route-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #route-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .leaflet-tooltip {
+  background-color: rgba(0, 0, 0, 0.7); /* Nền trong suốt tối */
+  color: #fff; /* Chữ màu trắng */
+  font-size: 14px; /* Cỡ chữ lớn hơn */
+  padding: 5px 10px; /* Thêm khoảng cách bên trong */
+  border-radius: 5px; /* Bo góc nhẹ */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Hiệu ứng đổ bóng */
+}
+.leaflet-tooltip-top:before {
+  border-top-color: rgba(0, 0, 0, 0.7); /* Màu tam giác phía dưới */
+}
+
+.route-button {
+  background-color: #007BFF; /* Màu nền xanh dương */
+  color: white; /* Màu chữ trắng */
+  border: none; /* Không viền */
+  border-radius: 5px; /* Bo tròn góc */
+  padding: 8px 12px; /* Khoảng cách bên trong nút */
+  font-size: 16	px; /* Kích thước chữ */
+  cursor: pointer; /* Đổi con trỏ thành tay khi hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng cho nút */
+  transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển đổi */
+  font-weight: bold
+}
+
+.route-button:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+  transform: scale(1.05); /* Phóng to khi hover */
+}
+
+.route-button:active {
+  transform: scale(1); /* Trở về kích thước ban đầu khi nhấn */
+}
+
+/* Mặc định */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+   .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
+
+  #filters-mobile .dropdown-toggle {
+    margin-bottom: 5px;
+  }
+
+  #filters-mobile .dropdown-content label {
+    color: white;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #filters {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+
+  #filters label {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  #filters input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  #price-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 5px;
+  }
+
+  #price-filter label {
+    font-weight: bold;
+  }
+
+  #price-select {
+    width: 100%;
+  }
+
+  button#filter-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  #map {
+    width: 100%;
+    height: 300px;
+  }
+
+  #list {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+}
+
+/* Dropdown filter styling */
+.dropdown-filter {
+  width: 100%;
+}
+
+.dropdown-toggle {
+  background-color: #004062;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.dropdown-toggle:hover {
+  background-color: #002a40;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: #006699;
+  border-radius: 0 0 8px 8px;
+  margin-top: 5px;
+}
+
+.dropdown-filter.open .dropdown-content {
+  display: flex;
+}
+
+.dropdown-content label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
